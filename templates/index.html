@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Note Organizer</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h1>Note Organizer</h1>
+
+<form method="POST" action="{{ url_for('add_note') }}">
+    <input type="text" name="title" placeholder="Note Title" required>
+    <textarea name="content" placeholder="Write your note..." rows="4" required></textarea>
+    <button type="submit" class="btn-add">Add Note</button>
+</form>
+
+<hr>
+
+<!-- جستجو و فیلتر -->
+<form method="GET" action="{{ url_for('index') }}">
+    <input type="text" name="search" placeholder="Search..." value="{{ search }}">
+    <select name="category">
+        {% for cat in categories %}
+            <option value="{{ cat }}" {% if category_filter==cat %}selected{% endif %}>{{ cat }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="btn-filter">Filter</button>
+</form>
+
+<ul class="notes-list">
+{% for note in notes %}
+<li>
+    <strong>{{ note.title }}</strong> [{{ note.category }}]<br>
+    {{ note.content }}<br>
+    <form action="{{ url_for('edit_note', note_id=note.id) }}" method="GET" style="display:inline;">
+        <button type="submit" class="btn-edit">Edit</button>
+    </form>
+    <form action="{{ url_for('delete_note', note_id=note.id) }}" method="POST" style="display:inline;">
+        <button type="submit" class="btn-delete">Delete</button>
+    </form>
+</li>
+{% endfor %}
+</ul>
+</body>
+</html>

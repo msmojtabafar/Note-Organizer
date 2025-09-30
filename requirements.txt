@@ -1,0 +1,6 @@
+Flask
+Flask-SQLAlchemy
+transformers
+sentencepiece
+tiktoken
+torch
