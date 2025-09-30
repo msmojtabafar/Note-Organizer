@@ -110,5 +110,13 @@ def edit_note(note_id):
         return redirect(url_for("index"))
     return render_template("edit.html", note=note)
 
+@app.route("/toggle/<int:note_id>", methods=["POST"])
+def toggle_done(note_id):
+    note = Note.query.get_or_404(note_id)
+    note.is_done = not note.is_done
+    db.session.commit()
+    return redirect(url_for("index"))
+
+
 if __name__ == "__main__":
     app.run(debug=True)

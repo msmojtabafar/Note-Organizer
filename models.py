@@ -7,3 +7,4 @@ class Note(db.Model):
     title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.Text, nullable=False)
     category = db.Column(db.String(50), nullable=True)
+    is_done = db.Column(db.Boolean, default=False) 
