@@ -4,3 +4,4 @@ transformers
 sentencepiece
 tiktoken
 torch
+nltk
