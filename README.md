@@ -96,3 +96,6 @@ docker run -p 5000:5000 note-organizer
 4. Use search bar and category filters to quickly find your notes.  
 
 ---
+<img width="1094" height="671" alt="Screenshot From 2025-09-29 15-52-11" src="https://github.com/user-attachments/assets/fd23bd06-faf4-40dd-8083-5864273b59bd" />
+<img width="1122" height="540" alt="Screenshot From 2025-09-29 15-51-48" src="https://github.com/user-attachments/assets/dce0b49d-724a-4181-a714-9241bd20117f" />
+
